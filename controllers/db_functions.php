@@ -1,0 +1,1 @@
+# Funciones mas utilizadas de la BBDD
