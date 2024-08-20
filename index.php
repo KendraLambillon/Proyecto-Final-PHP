@@ -1,3 +1,8 @@
+<?php
+    ini_set('display_erros', 1);
+    error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +29,7 @@
                     <a href="./views/noticias.php" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Registro</a>
+                    <a href="./views/registro.html" class="nav__links">Registro</a>
                 </li>
                 <li class="nav__items">
                     <a href="./views/login.html" class="nav__links">Login</a>

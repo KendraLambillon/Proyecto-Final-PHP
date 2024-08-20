@@ -13,5 +13,3 @@ if($mysqli_connection -> connect_errno){
 } else {
     echo "La conexion ha funcionado";
 }
-
-

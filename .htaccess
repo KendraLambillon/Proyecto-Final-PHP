@@ -1,0 +1,5 @@
+php_flag display_errors on
+php_value error_reporting 32167
+
+# Establece el nivel de error.
+# Nos permite modificar al configuracion base de el archiv de configuracion de php que se encuentra en el servidor.
