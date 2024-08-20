@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
                     <a href="#" class="nav__links">Inicio</a>
                 </li>
                 <li class="nav__items">
-                    <a href="./views/noticias.html" class="nav__links">Noticias</a>
+                    <a href="./views/noticias.php" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
                     <a href="#" class="nav__links">Registro</a>
@@ -29,8 +29,8 @@
                 <li class="nav__items">
                     <a href="./views/login.html" class="nav__links">Login</a>
                 </li>
-                <img src="./assets/img/close.svg" alt="close" class="nav__close">
             </ul>
+            <img src="./assets/img/close.svg" alt="close" class="nav__close">
             <div class="nav__menu">
                 <img src="./assets/img/menu.svg" alt="menu" class="nav__img">
             </div>
@@ -41,6 +41,13 @@
             <a href="https://github.com/KendraLambillon/Proyecto-Final-PHP" target="_blank" class="cta">Trabajo final - GitHub</a>
         </section>
     </header>
+
+    <div class="aviso_connection">
+                AVISO:
+                <?php
+                    require_once 'controllers/db_connection.php';
+                ?>
+    </div>
 
     <main>
         <section class="container about">
@@ -102,7 +109,7 @@
 
         </section>
 
-        <section class="profile">
+        <div class="profile">
             <div class="profile__container container">
                 <img src="./assets/img/leftarrow.svg" alt="leftarrow" class="profile__arrow" id="previous">
                 <section class="profile__body profile__body--show" data-id="1">
@@ -136,13 +143,13 @@
                 </section>
                 <img src="./assets/img/rightarrow.svg" alt="rightarrow" class="profile__arrow" id="next">
             </div>
-        </section>
+        </div>
 
         <section class="contacto container">
             <h2 class="subtitle">Contacto</h2>
             <p class="contacto__interest">¿Estas interesad@ en mi perfil? Te dejo unas opciones donde podras contactarme.</p>
 
-            <section class="contacto__container">
+            <div class="contacto__container">
                 <article class="contact__item">
                     <div class="contacto__answer">
                         <h3 class="contacto__title">LinkedIn
@@ -177,12 +184,12 @@
                     </div>
                 </article>
 
-            </section>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <section class="footer__container container">
+        <div class="footer__container container">
             <nav class="nav nav__footer">
                 <h2 class="footer__title">
                     Proyecto final de PHP y SQL
@@ -192,7 +199,7 @@
                         <a href="#" class="nav__links">Inicio</a>
                     </li>
                     <li class="nav__items">
-                        <a href="./views/noticias.html" class="nav__links">Noticias</a>
+                        <a href="./views/noticias.php" class="nav__links">Noticias</a>
                     </li>
                     <li class="nav__items">
                         <a href="#" class="nav__links">Registro</a>
@@ -202,7 +209,7 @@
                     </li>
                 </ul>
             </nav>
-        </section>
+        </div>
 
         <section class="footer__copy container">
             <div class="footer__social">
