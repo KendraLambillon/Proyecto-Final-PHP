@@ -232,6 +232,7 @@
     <!--JS script-->
     <script src="./js/slider.js"></script>
     <script src="./js/menu.js"></script>
+    <script src="./js/contacto.js"></script>
 
 
 </body>
