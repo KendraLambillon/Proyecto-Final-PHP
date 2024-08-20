@@ -34,8 +34,8 @@
                 <li class="nav__items">
                     <a href="./views/login.html" class="nav__links">Login</a>
                 </li>
+                <img src="./assets/img/close.svg" alt="close" class="nav__close">
             </ul>
-            <img src="./assets/img/close.svg" alt="close" class="nav__close">
             <div class="nav__menu">
                 <img src="./assets/img/menu.svg" alt="menu" class="nav__img">
             </div>
@@ -231,6 +231,7 @@
 
     <!--JS script-->
     <script src="./js/slider.js"></script>
+    <script src="./js/menu.js"></script>
 
 
 </body>
