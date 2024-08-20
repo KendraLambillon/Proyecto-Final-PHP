@@ -230,7 +230,7 @@
     </footer>
 
     <!--JS script-->
-    <script src="#"></script>
+    <script src="./js/slider.js"></script>
 
 
 </body>
