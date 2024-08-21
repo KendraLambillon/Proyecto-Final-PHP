@@ -24,7 +24,7 @@
                     <a href="#" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="../views/registro.html" class="nav__links">Registro</a>
+                    <a href="#" class="nav__links">Registro</a>
                 </li>
                 <li class="nav__items">
                     <a href="#" class="nav__links">Login</a>
@@ -39,20 +39,44 @@
 
     <main>
         <div class="container about">
-            <h2>Formulario registro</h2>
+            <h2>Registrarse</h2>
             <div class="aviso__registro"></div>
             <div class="formulario">
-                <form id="regsitro" class="mi__form" action="#" method="POST">
+                <form id="regsitro" class="mi__form" action="../views/registro.php" method="POST">
                     <div class="form__options">
-                        <label for="username">Nombre: </label>
+                        <label for="username">Nombre &#128113; </label>
                         <input type="text" id="username" name="username" placeholder="Escriba su nombre">
                     </div>
                     <div class="form__options">
-                        <label for="email">Email: </label>
-                        <input type="text" id="email" name="email" placeholder="Escriba su email">
+                        <label for="surname">Apellidos &#128113; </label>
+                        <input type="text" id="surname" name="surname" placeholder="Escriba su appellido">
                     </div>
                     <div class="form__options">
-                        <label for="userpwd">Password: </label>
+                        <label for="email">Email &#128231; </label>
+                        <input type="textarea" id="email" name="email" placeholder="Escriba su correo electronico">
+                    </div>
+                    <div class="form__options">
+                        <label for="phone">Teléfono &#128222; </label>
+                        <input type="tel" id="phone" name="phone" placeholder="Escriba su telefono">
+                    </div>
+                    <div class="form__options">
+                        <label for="fnac">Fecha de nacimiento &#128197; </label>
+                        <input type="date" id="fnac" name="fnac" placeholder="Escriba su fecha de nacimiento">
+                    </div>
+                    <div class="form__options">
+                        <label for="address">Dirección &#128205; </label>
+                        <input type="text" id="address" name="address" placeholder="Escriba su dirección">
+                    </div>
+                    <div class="form__options">
+                        <label for="gender">Género &#128699; </label>
+                        <input type="text" id="gender" name="gender" placeholder="Escriba su genero">
+                    </div>
+                    <div class="form__options">
+                        <label for="user_ref">Nombre de usuario &#128187; </label>
+                        <input type="text" id="user_ref" name="user_ref" placeholder="Escriba su nombre de usuario">
+                    </div>
+                    <div class="form__options">
+                        <label for="userpwd">Contraseña &#128272; </label>
                         <input type="password" id="userpwd" name="userpwd" placeholder="Escriba su contraseña">
                     </div>
                     <div class="password__show">
