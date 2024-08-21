@@ -42,7 +42,7 @@
             <h2>Registrarse</h2>
             <div class="aviso__registro"></div>
             <div class="formulario">
-                <form id="regsitro" class="mi__form" action="../views/registro.php" method="POST">
+                <form id="regsitro" class="mi__form" action="../controllers/control_registro.php" method="POST">
                     <div class="form__options">
                         <label for="username">Nombre &#128113; </label>
                         <input type="text" id="username" name="username" placeholder="Escriba su nombre">
