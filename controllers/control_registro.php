@@ -20,21 +20,30 @@ if($_POST["registarse"]){
     $password = password_hash($contrasena, PASSWORD_BCRYPT);
 
     #Consulta para insertar datos
-    $insert_statement = $mysqli_connection -> prepare("INSERT INTO users_data(nombre, apellidos, email, telefono, fnac, direccion, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $insert_statement1 = $mysqli_connection -> prepare("INSERT INTO users_data(nombre, apellidos, email, telefono, fnac, direccion, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)"); #con los ? aumento la seguridad de los datos insertados
+
+    $common_values = $mysqli_connection -> prepare("SELECT idUser FROM users_data WHERE idUser = userslogin_idUser IN users_login) VALUES (?)");
+
+    $insert_statement2 = $mysqli_connection -> prepare("INSERT INTO users_login(usuario, usuario_password, rol) VALUES (?, ?, 'user')");
+
     #Mensaje de error por si la consulta no funciona
-    if(!$insert_statement){
+    if(!$insert_statement1 && !$insert_statement2){
         die("Error al preparar la sentencia: " . $mysqli_connection -> error);
     } else {
-        $insert_statement -> bind_param("sssssss", $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero);
+        #Especificamos que la sentencia de insercion llevara  X  parametros mencionados, en este caso 7 datos
+        $insert_statement1 -> bind_param("sssssss", $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero);
+        $insert_statement2 -> bind_param("ss", $nombre_usuario, $password);
 
-        #Se ejecuta la consulta de insercion
-        if($insert_statement -> execute()){
-            $insert_statement -> close();
+        #Se intenta ejecutar la consulta de insercion
+        if($insert_statement1 && $insert_statement2 -> execute()){
+            $insert_statement1 -> close();
+            $insert_statement2 -> close();
             header('Location: ../index.php');
             exit();
         } else {
-            echo "Error: " . $insert_statement -> error;
-            $insert_statement -> close();
+            echo "Error: " . $insert_statement1 -> error;
+            $insert_statement1 -> close();
+            $insert_statement2 -> close();
         }
 
         #Cerramos la connexion con la BD
