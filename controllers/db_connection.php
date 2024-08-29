@@ -2,7 +2,7 @@
 
 # Incluir/vincular los parametros de conexion
 require_once '.env.php';
-require_once '../config/config.php';
+require_once './config/config.php';
 
 #Definimos una funccion para realizar la conexio a la base de datos
 function connectToDatabase(){

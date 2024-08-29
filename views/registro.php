@@ -1,3 +1,10 @@
+<?php
+    #Comprobar si existe una sesion activa
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,7 +47,23 @@
     <main>
         <div class="container about">
             <h2>Registrarse</h2>
-            <div class="aviso__registro"></div>
+            <div class="aviso__registro">
+                <?php
+                    #Comprobar si hay mensajes de error
+                    if(isset($_SESSION["mensaje_error"])){
+                        echo "<span>" . $_SESSION['mensaje_error'] . "</span>";
+                        #Eliminar el mensaje de error
+                        unset($_SESSION["mensaje_error"]);
+                    }
+
+                    #Comprobar si hay mensajes de exito
+                    if(isset($_SESSION["mensaje_exito"])){
+                        echo "<span>" . $_SESSION['mensaje_exito'] . "</span>";
+                        #Eliminar el mensaje de exito
+                        unset($_SESSION["mensaje_exito"]);
+                    }
+                ?>
+            </div>
             <div class="formulario">
                 <form id="regsitro" class="mi__form" action="../controllers/control_registro.php" method="POST">
                     <div class="form__options">
