@@ -1,0 +1,10 @@
+<Files "config.php">
+    # Sintaxis para apache 2.4
+    Require all denied
+</Files>
+
+# Sintaxis para versiones anteriores de apache
+# <Files "config.php">
+    # Order Allow,Deny
+    # Deny from all
+#</Files>

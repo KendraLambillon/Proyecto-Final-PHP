@@ -1,7 +1,5 @@
 <?php
-    #Este codigo funciona en caso de usar otro servidor que no sea APACHE
-    ini_set('display_erros', 1);
-    error_reporting(E_ALL);
+    require_once "config/config.php";
 ?>
 
 <!DOCTYPE html>

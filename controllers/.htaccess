@@ -1,0 +1,12 @@
+<Files ".env.php">
+    # Sintaxis para apache 2.4
+    Require all denied
+</Files>
+
+# Sintaxis para versiones anteriores de apache
+# <Files "config.php">
+    # Order Allow,Deny
+    # Deny from all
+#</Files>
+
+#No queremos que desde el navegador se pueda acceder a las variables globales de entorno, de acceso a la base de datos
