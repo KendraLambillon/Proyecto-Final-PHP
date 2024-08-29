@@ -85,7 +85,7 @@
                     </div>
                     <div class="form__buttons">
                         <input type="reset" value="Borrar">
-                        <input type="submit" value="Enviar" name="registarse">
+                        <input type="submit" value="Enviar" name="registrarse">
                     </div>
                 </form>
             </div>
