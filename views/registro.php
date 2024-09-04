@@ -42,6 +42,9 @@
                 <img src="../assets/img/menu.svg" alt="menu" class="nav__img">
             </div>
         </nav>
+        <section class="head__container container">
+            <h1 class="head__title">Formulario de registro</h1>
+        </section>
     </header>
 
     <main>
