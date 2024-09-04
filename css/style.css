@@ -414,6 +414,11 @@ body{
     margin-right: 30px;
 }
 
+.aviso__registro{
+    margin-top: 20px;
+    font-style: italic;
+}
+
 /*Media queries*/
 @media (max-width: 800px){
     .nav__menu{

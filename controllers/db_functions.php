@@ -1,8 +1,8 @@
 <?php
 # Funciones mas utilizadas de la BBDD
 
-#Vincular los archivos necesarios
-require_once './config/config.php';
+# Vinculamos la ruta absoluta al directorio config.php desde db_conn.php
+require_once __DIR__ . '/../config/config.php';
 
 #Definir una funcion para comprobar si existe un usuario en la base de datos
 function check_user($email, $mysqli_connection){

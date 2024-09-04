@@ -2,7 +2,9 @@
 
 # Incluir/vincular los parametros de conexion
 require_once '.env.php';
-require_once './config/config.php';
+
+# Vinculamos la ruta absoluta al directorio config.php desde db_conn.php
+require_once __DIR__ . '/../config/config.php';
 
 #Definimos una funccion para realizar la conexio a la base de datos
 function connectToDatabase(){

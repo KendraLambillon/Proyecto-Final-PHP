@@ -95,7 +95,7 @@
                     </div>
                     <div class="form__options">
                         <label for="gender">Género &#128699; </label>
-                        <input type="text" id="gender" name="gender" placeholder="Escriba su genero">
+                        <input type="text" id="gender" name="gender" placeholder="Mujer, Hombre, Neutro">
                     </div>
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>

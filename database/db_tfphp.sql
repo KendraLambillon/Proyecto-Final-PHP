@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users_data(
     telefono VARCHAR(20) NOT NULL,
     fnac DATE NOT NULL,
     direccion VARCHAR(90),
-    sexo ENUM('F', 'M'),
+    sexo ENUM('Mujer', 'Hombre', 'Neutro'),
     PRIMARY KEY(idUser)
 )ENGINE=INNODB;
 
