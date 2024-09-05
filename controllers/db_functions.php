@@ -90,3 +90,31 @@ function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_er
         }
     }
 }
+
+
+#Funcion que permite actualizar un usuario
+function update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $contrasena, $mysqli_connection){
+    #Evitar inyecciones SQL
+    $nombre = $mysqli_connection -> real_escape_string($nombre);
+    $apellidos = $mysqli_connection -> real_escape_string($apellidos);
+
+    #Crear consulta de actualizacion
+    $query = "UPDATE users_data SET nombre = ?, apellidos = ? WHERE id_user = ?";
+
+    #Preparar la consulta SQL
+    $consulta = $mysqli_connection -> prepare($query);
+
+    #Vincular los parametros
+    $consulta -> bind_param('ss', $nombre, $apellidos);
+
+    #Ejecutar la consulta de actualizacion
+    $result = $consulta -> execute();
+
+    #Comprobar si la actualizacion se ha realizado correctamente
+    if($result){
+        return true;
+    }else{
+        return false;
+    }
+
+}

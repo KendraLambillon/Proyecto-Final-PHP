@@ -8,11 +8,22 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 #Redirigir al login si el usuario no ha iniciado sesion
-if(!isset($_SESSION['user_id'])){
-    $_SESSION["mensaje_error"] = "Lo sentimos debes iniciar sesion";
+if(isset($_SESSION['user_data'])){
+    $user_data = $_SESSION['user_data'];
+
+    print_r($user_data);
+
+    /*
+    foreach($user_data as $key => $value){
+        echo "$key: $value <br>";
+    }
+    */
+}else{
+    $_SESSION["mensaje_error"] = "Lo sentimos debes iniciar sesión";
     header("Location: ../../views/login.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +61,86 @@ if(!isset($_SESSION['user_id'])){
             </div>
         </nav>
         <section class="head__container container">
-            <h1 class="head__title">Perfil</h1>
+            <h1 class="head__title">Perfil usuario</h1>
         </section>
     </header>
 
     <main>
         <div class="container about">
-            <h2>Bienvenid@ <?php echo htmlspecialchars($_SESSION['user_name']); ?> </h2>
+        <h2>Tu perfil</h2>
+            <div class="aviso__registro">
+                <?php
+                    #Comprobar si hay mensajes de error
+                    if(isset($_SESSION["mensaje_error"])){
+                        echo "<span>" . $_SESSION['mensaje_error'] . "</span>";
+                        #Eliminar el mensaje de error
+                        unset($_SESSION["mensaje_error"]);
+                    }
+
+                    #Comprobar si hay mensajes de exito
+                    if(isset($_SESSION["mensaje_exito"])){
+                        echo "<span>" . $_SESSION['mensaje_exito'] . "</span>";
+                        #Eliminar el mensaje de exito
+                        unset($_SESSION["mensaje_exito"]);
+                    }
+                ?>
+            </div>
+            <div class="formulario">
+                <form id="perfil" class="mi__form" action="../../controllers/carpeta_usuarios/control_profile.php" method="POST">
+                    <div class="form__options">
+                        <label for="username">Nombre &#128113; </label>
+                        <input type="text" id="username" name="username" >
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="surname">Apellidos &#128113; </label>
+                        <input type="text" id="surname" name="surname" placeholder="Escriba su appellido">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="email">Email &#128231; </label>
+                        <input type="textarea" id="email" name="email" >
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="phone">Teléfono &#128222; </label>
+                        <input type="tel" id="phone" name="phone" placeholder="Escriba su telefono">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="fnac">Fecha de nacimiento &#128197; </label>
+                        <input type="date" id="fnac" name="fnac" placeholder="Escriba su fecha de nacimiento">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="address">Dirección &#128205; </label>
+                        <input type="text" id="address" name="address" placeholder="Escriba su dirección">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="gender">Género &#128699; </label>
+                        <input type="text" id="gender" name="gender" placeholder="Mujer, Hombre, Neutro">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="user_ref">Nombre de usuario &#128187; </label>
+                        <input type="text" id="user_ref" name="user_ref" >
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="form__options">
+                        <label for="userpwd">Contraseña &#128272; </label>
+                        <input type="password" id="userpwd" name="userpwd" placeholder="Escriba su contraseña">
+                        <small class="input_error"></small>
+                    </div>
+                    <div class="password__show">
+                        <label for="checkpwd">Mostrar contraseña</label>
+                        <input type="checkbox" id="checkpwd">
+                    </div>
+                    <div class="form__buttons">
+                        <input type="submit" value="Guardar" name="actualizar_datos">
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -86,10 +170,10 @@ if(!isset($_SESSION['user_id'])){
         <section class="footer__copy container">
             <div class="footer__social">
                 <a href="https://www.linkedin.com/in/kendra-lambillon/" target="_blank" class="footer__icons">
-                    <img src="../assets/img/LinkedIn.svg" alt="LinkedIn social" class="footer__img">
+                    <img src="../../assets/img/LinkedIn.svg" alt="LinkedIn social" class="footer__img">
                 </a>
                 <a href="https://github.com/KendraLambillon" target="_blank" class="footer__icons">
-                    <img src="../assets/img/github.svg" alt="GitHub social" class="footer__img">
+                    <img src="../../assets/img/github.svg" alt="GitHub social" class="footer__img">
                 </a>
             </div>
             <h3 class="footer__copyright">Derechos reservados &copy; KENDRA LAMBILLON</h3>

@@ -54,10 +54,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
         if($user){
             #Verificar si la contraseña facilitada por el usuario en el form si coincide con la de la BBDD
             if(password_verify($contrasena, $user['usuario_password'])){
+                #Generar una variable de sesion para guardar los datos
+                $_SESSION['user_data'] = $user;
+
+
+
                 #Establecer las variables de sesion y redigir al usuario
+                /*
                 $_SESSION['user_id'] = $user['idUser'];
                 $_SESSION['user_name'] = $user['nombre'];
                 $_SESSION['User_usuario'] = $user['usuario'];
+                */
                 header('Location: ../views/carpeta_usuarios/profile.php');
                 exit();
             }else{
