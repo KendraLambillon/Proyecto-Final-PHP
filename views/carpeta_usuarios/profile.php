@@ -1,3 +1,20 @@
+<?php
+
+require_once __DIR__ . '/../../config/config.php';
+
+#Comprobar si hay una session activa
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+#Redirigir al login si el usuario no ha iniciado sesion
+if(!isset($_SESSION['user_id'])){
+    $_SESSION["mensaje_error"] = "Lo sentimos debes iniciar sesion";
+    header("Location: ../../views/login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +24,8 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="../assets/img/llama_favicon.png" type="image/x-icon">
     <!--CSS-->
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header class="head">
@@ -18,16 +35,13 @@
             </div>
             <ul class="nav__link nav__link--menu">
                 <li class="nav__items">
-                    <a href="../index.php" class="nav__links">Inicio</a>
+                    <a href="../../index.php" class="nav__links">Inicio</a>
                 </li>
                 <li class="nav__items">
-                    <a href="../views/noticias.html" class="nav__links">Noticias</a>
+                    <a class="nav__links active" href="#">Perfil</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Registro</a>
-                </li>
-                <li class="nav__items">
-                    <a href="#" class="nav__links">Login</a>
+                    <a class="nav__links" href="../../controllers/carpeta_usuarios/logout.php">Cerrar sesión</a>
                 </li>
                 <img src="../assets/img/close.svg" alt="close" class="nav__close">
             </ul>
@@ -35,11 +49,14 @@
                 <img src="../assets/img/menu.svg" alt="menu" class="nav__img">
             </div>
         </nav>
+        <section class="head__container container">
+            <h1 class="head__title">Perfil</h1>
+        </section>
     </header>
 
     <main>
-        <div>
-
+        <div class="container about">
+            <h2>Bienvenid@ <?php echo htmlspecialchars($_SESSION['user_name']); ?> </h2>
         </div>
     </main>
 
@@ -80,6 +97,8 @@
     </footer>
 
     <!--JS script-->
-    <script src="#"></script>
+    <script src="../js/registro.js"></script>
+    
 </body>
 </html>
+

@@ -1,12 +1,12 @@
 <?php
-    #Comprobar si existe una sesion activa
+    # Comprobar si existe una sesión activa
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +28,13 @@
                     <a href="../index.php" class="nav__links">Inicio</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Noticias</a>
+                    <a href="../views/noticias.html" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Registro</a>
+                    <a href="../views/registro.php" class="nav__links">Registro</a>
                 </li>
                 <li class="nav__items">
-                    <a href="../views/login.php" class="nav__links">Login</a>
+                    <a href="#" class="nav__links">Login</a>
                 </li>
                 <img src="../assets/img/close.svg" alt="close" class="nav__close">
             </ul>
@@ -43,67 +43,26 @@
             </div>
         </nav>
         <section class="head__container container">
-            <h1 class="head__title">Formulario de registro</h1>
+            <h1 class="head__title">Inicio de sesión</h1>
         </section>
     </header>
 
     <main>
         <div class="container about">
-            <h2>Registrarse</h2>
-            <div class="aviso__registro">
-                <?php
-                    #Comprobar si hay mensajes de error
-                    if(isset($_SESSION["mensaje_error"])){
-                        echo "<span>" . $_SESSION['mensaje_error'] . "</span>";
-                        #Eliminar el mensaje de error
-                        unset($_SESSION["mensaje_error"]);
-                    }
-
-                    #Comprobar si hay mensajes de exito
-                    if(isset($_SESSION["mensaje_exito"])){
-                        echo "<span>" . $_SESSION['mensaje_exito'] . "</span>";
-                        #Eliminar el mensaje de exito
-                        unset($_SESSION["mensaje_exito"]);
-                    }
-                ?>
+            <h2>Iniciar sesión</h2>
+            <div class="aviso_registro">
             </div>
             <div class="formulario">
-                <form id="regsitro" class="mi__form" action="../controllers/control_registro.php" method="POST">
-                    <div class="form__options">
-                        <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" placeholder="Escriba su nombre">
-                    </div>
-                    <div class="form__options">
-                        <label for="surname">Apellidos &#128113; </label>
-                        <input type="text" id="surname" name="surname" placeholder="Escriba su appellido">
-                    </div>
-                    <div class="form__options">
-                        <label for="email">Email &#128231; </label>
-                        <input type="textarea" id="email" name="email" placeholder="Escriba su correo electronico">
-                    </div>
-                    <div class="form__options">
-                        <label for="phone">Teléfono &#128222; </label>
-                        <input type="tel" id="phone" name="phone" placeholder="Escriba su telefono">
-                    </div>
-                    <div class="form__options">
-                        <label for="fnac">Fecha de nacimiento &#128197; </label>
-                        <input type="date" id="fnac" name="fnac" placeholder="Escriba su fecha de nacimiento">
-                    </div>
-                    <div class="form__options">
-                        <label for="address">Dirección &#128205; </label>
-                        <input type="text" id="address" name="address" placeholder="Escriba su dirección">
-                    </div>
-                    <div class="form__options">
-                        <label for="gender">Género &#128699; </label>
-                        <input type="text" id="gender" name="gender" placeholder="Mujer, Hombre, Neutro">
-                    </div>
+                <form id="login_form" class="mi__form" action="../controllers/control_login.php" method="POST">
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>
-                        <input type="text" id="user_ref" name="user_ref" placeholder="Escriba su nombre de usuario">
+                        <input type="text" id="user_ref" name="user_ref" placeholder="Escriba su nombre de usuario" title="El nombre de usuario debe ser único y tener entre 2 y 45 caracteres.">
+                        <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="userpwd">Contraseña &#128272; </label>
-                        <input type="password" id="userpwd" name="userpwd" placeholder="Escriba su contraseña">
+                        <input type="password" id="userpwd" name="userpwd" placeholder="Escriba su contraseña" title="La contraseña deberá contener entre 8 y 20 caracteres e incluir de forma obligatoria una letra mayúscula, un número y un símbolo entre los siguientes (.,_-)">
+                        <small class="input_error"></small>
                     </div>
                     <div class="password__show">
                         <label for="checkpwd">Mostrar contraseña</label>
@@ -111,7 +70,7 @@
                     </div>
                     <div class="form__buttons">
                         <input type="reset" value="Borrar">
-                        <input type="submit" value="Enviar" name="registrarse">
+                        <input type="submit" value="Enviar" name="start_login">
                     </div>
                 </form>
             </div>
@@ -119,7 +78,7 @@
     </main>
 
     <footer class="footer">
-        <div class="footer__container container">
+        <section class="footer__container container">
             <nav class="nav nav__footer">
                 <h2 class="footer__title">
                     Proyecto final de PHP y SQL
@@ -129,17 +88,17 @@
                         <a href="../index.php" class="nav__links">Inicio</a>
                     </li>
                     <li class="nav__items">
-                        <a href="#" class="nav__links">Noticias</a>
+                        <a href="../views/noticias.html" class="nav__links">Noticias</a>
                     </li>
                     <li class="nav__items">
-                        <a href="../views/registro.php" class="nav__links">Registro</a>
+                        <a href="#" class="nav__links">Registro</a>
                     </li>
                     <li class="nav__items">
-                        <a href="../views/login.php" class="nav__links">Login</a>
+                        <a href="#" class="nav__links">Login</a>
                     </li>
                 </ul>
             </nav>
-        </div>
+        </section>
 
         <section class="footer__copy container">
             <div class="footer__social">
@@ -156,5 +115,6 @@
 
     <!--JS script-->
     <script src="../js/registro.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 # Controlador que gestiona el registro
 # Archivo necesario
-#require_once './config/config.php';
+require_once __DIR__ . '/../config/config.php';
 #Incluir el archivo de conexión
 require_once 'db_connection.php';
 #Incluir el archivo de funcciones
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
 
 
     #Validar el formulario a traves de la function validar_registro
-    $errores_validate =validar_registro($nombre, $email, $contrasena);
+    $errores_validate = validar_registro($nombre, $email, $contrasena);
 
     #Comprobar si se han generado errores de validacion o no
     if(!empty($errores_validate)){

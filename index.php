@@ -1,5 +1,10 @@
 <?php
-    require_once "config/config.php";
+    require_once __DIR__ . '/config/config.php';
+
+    #Comprobar si hay una session activa
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +29,25 @@
                 <li class="nav__items">
                     <a href="#" class="nav__links">Inicio</a>
                 </li>
-                <li class="nav__items">
-                    <a href="./views/noticias.php" class="nav__links">Noticias</a>
-                </li>
-                <li class="nav__items">
-                    <a href="./views/registro.php" class="nav__links">Registro</a>
-                </li>
-                <li class="nav__items">
-                    <a href="./views/login.html" class="nav__links">Login</a>
-                </li>
-                <img src="./assets/img/close.svg" alt="close" class="nav__close">
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <li class="nav__items">
+                        <a href="./views/carpeta_usuarios/profile.php">Perfil</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="./controllers/carpeta_usuarios/logout.php">Cerrar sesión</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav__items">
+                        <a href="./views/noticias.html" class="nav__links">Noticias</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="./views/registro.php" class="nav__links">Registro</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="./views/login.php" class="nav__links">Login</a>
+                    </li>
+                    <img src="./assets/img/close.svg" alt="close" class="nav__close">
+                <?php endif; ?>
             </ul>
             <div class="nav__menu">
                 <img src="./assets/img/menu.svg" alt="menu" class="nav__img">

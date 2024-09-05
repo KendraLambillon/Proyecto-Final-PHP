@@ -25,3 +25,21 @@ function validar_registro($nombre, $email, $password){
 
     return $errores;
 }
+
+#Definimos la funcion de validar el login
+function validar_login($nombre_usuario, $password){ #paso la contrasena hasheada
+    #Declarar un array asociativo(clave-valor)
+    $errores = [];
+
+    #Validacion del usuario haciendo uso de la constante NOMBRE_REGEX
+    if(!preg_match(NOMBRE_REGEX, $nombre_usuario)){
+        $errores['usuario'] = "Usuario invalido";
+    }
+
+    #Validacion de la contraseña haciendo uso de la constante PWD_REGEX
+    if(!preg_match(PWD_REGEX, $password)){
+        $errores['pwd'] = "Contraseña invalida";
+    }
+
+    return $errores;
+}
