@@ -59,7 +59,7 @@ function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_er
             return false; #Salimos de la funcion
         }
 
-        #Vincular el email a la consulta
+        #Vincular el nombre_usuario a la consulta
         $select_statement -> bind_param('s', $nombre_usuario);
 
         #Intenar ejecutar la consulta
@@ -97,15 +97,22 @@ function update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $
     #Evitar inyecciones SQL
     $nombre = $mysqli_connection -> real_escape_string($nombre);
     $apellidos = $mysqli_connection -> real_escape_string($apellidos);
+    $email = $mysqli_connection -> real_escape_string($email);
+    $telefono = $mysqli_connection -> real_escape_string($telefono);
+    $fecha_nacimiento = $mysqli_connection -> real_escape_string($fecha_nacimiento);
+    $direccion = $mysqli_connection -> real_escape_string($direccion);
+    $genero = $mysqli_connection -> real_escape_string($genero);
+    $contrasena = $mysqli_connection -> real_escape_string($contrasena);
+
 
     #Crear consulta de actualizacion
-    $query = "UPDATE users_data SET nombre = ?, apellidos = ? WHERE id_user = ?";
+    $query = "UPDATE users_data SET nombre = ?, apellidos = ?, email = ?, telefono = ?, fecha_nacimiento = ?, direccion = ?, genero = ?, contrasena = ? WHERE id_user = ?";
 
     #Preparar la consulta SQL
     $consulta = $mysqli_connection -> prepare($query);
 
     #Vincular los parametros
-    $consulta -> bind_param('ss', $nombre, $apellidos);
+    $consulta -> bind_param('sssssssss', $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $contrasena, $id_user);
 
     #Ejecutar la consulta de actualizacion
     $result = $consulta -> execute();
@@ -116,5 +123,4 @@ function update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $
     }else{
         return false;
     }
-
 }

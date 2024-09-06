@@ -11,7 +11,7 @@ if(session_status() == PHP_SESSION_NONE){
 if(isset($_SESSION['user_data'])){
     $user_data = $_SESSION['user_data'];
 
-    print_r($user_data);
+    #print_r($user_data);
 
     /*
     foreach($user_data as $key => $value){
@@ -89,7 +89,7 @@ if(isset($_SESSION['user_data'])){
                 <form id="perfil" class="mi__form" action="../../controllers/carpeta_usuarios/control_profile.php" method="POST">
                     <div class="form__options">
                         <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" >
+                        <input type="text" id="username" name="username">
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../../config/config.php';
 
 #Iniciar sesion para acceder a las variables de sesion
 session_start();

@@ -29,6 +29,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     echo $id_user;
 
     #Validar los datos
+    $errores_validate = validar_registro($nombre, $email, $contrasena);
+
+    #Comprobar si se han generado errores de validacion o no
+    if(!empty($errores_validate)){
+        #Si hay errores, vamos a guardarlos en una cadena
+        $mensaje_error = "";
+        #Recorremos el array de errores
+        foreach($errores_validate as $clave => $mensaje){
+            $mensaje_error .= $mensaje . "<br>";
+        }
+        #Asignamos la cadena de errores a la variable $_SESSION['mensaje_error']
+        $_SESSION['mensaje_error'] = $mensaje_error;
+        #Redirigimos al usuario
+        header("Location: ../views/carpeta_usuarios/profile.php");
+        exit();
+    }
+
+    # Hasheamos la contrasena si es correcta
+    # Hash en pwd: para encriptar la contraseña
+    $password = password_hash($contrasena, PASSWORD_BCRYPT);
 
     #Actualizacion de los datos del usuario en la BBDD
     $result = update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $contrasena, $mysqli_connection);
@@ -52,6 +72,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
         header('Location: ../../views/carpeta_usuarios/profile.php');
         exit();
     }
-
-
 }
