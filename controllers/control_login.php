@@ -14,8 +14,15 @@ if(session_status() == PHP_SESSION_NONE){
 #Comprobar si la informacion esta llegando a traves de POST y Submit
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
     #Obtener los datos del formulario saneados
-    $nombre_usuario = htmlspecialchars($_POST['user_ref']);
-    $contrasena = htmlspecialchars($_POST['userpwd']);
+    $nombre = htmlspecialchars($_POST["username"]);
+    $apellidos = htmlspecialchars($_POST["surname"]);
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $telefono = htmlspecialchars($_POST["phone"]);
+    $fecha_nacimiento = htmlspecialchars($_POST["fnac"]);
+    $direccion = htmlspecialchars($_POST["address"]);
+    $genero = htmlspecialchars($_POST["gender"]);
+    $nombre_usuario = htmlspecialchars($_POST["user_ref"]);
+    $contrasena = htmlspecialchars($_POST["userpwd"]);
 
     #Validar el formulario
     $errores_validate = validar_login($nombre_usuario, $contrasena);
@@ -42,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
 
         $user = get_user_by_usuario($nombre_usuario, $mysqli_connection, $exception_error);
 
+
         #Comprobar si se ha capturado alguna excepcion
         if($exception_error){
             #Redirigimos a la pagina de error
@@ -57,14 +65,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
                 #Generar una variable de sesion para guardar los datos
                 $_SESSION['user_data'] = $user;
 
-
-
-                #Establecer las variables de sesion y redigir al usuario
-                /*
-                $_SESSION['user_id'] = $user['idUser'];
-                $_SESSION['user_name'] = $user['nombre'];
-                $_SESSION['User_usuario'] = $user['usuario'];
-                */
                 header('Location: ../views/carpeta_usuarios/profile.php');
                 exit();
             }else{
@@ -73,6 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
                 header("Location: ../views/login.php");
                 exit();
             }
+
         }else{
             #Si no existe el usuario o no se encuentra
             $_SESSION['mensaje_error'] = "No se ha encontrado el usuario";

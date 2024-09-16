@@ -44,12 +44,13 @@ function check_user($email, $mysqli_connection){
     }
 }
 
+#Definir una funcion para obtener los datos del usuario al profile.php
 function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_error){
     #Inicializar la consulta
     $select_statement = null;
 
     try{
-        #Preparar la consulta SQL necesaria para buscar al usuario a traves de su email
+        #Preparar la consulta SQL necesaria para buscar al usuario a traves de su nombre de usuario
         $query = "SELECT * FROM users_login WHERE usuario = ? LIMIT 1";
         $select_statement = $mysqli_connection -> prepare($query);
 
@@ -62,7 +63,7 @@ function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_er
         #Vincular el nombre_usuario a la consulta
         $select_statement -> bind_param('s', $nombre_usuario);
 
-        #Intenar ejecutar la consulta
+        #Intentar ejecutar la consulta
         if(!$select_statement -> execute()){
             error_log("No se puede ejecutar la consulta " . $mysqli_connection -> error);
             $exception_error = true;

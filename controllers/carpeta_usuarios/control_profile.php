@@ -27,8 +27,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     #Recuperar el idUser del usuario de la sesion
     $id_user = $_SESSION['user_data']['userslogin_idUser'];
     echo $id_user;
+    
 
-    #Validar los datos
+    #Validar todos los datos
     $errores_validate = validar_registro($nombre, $email, $contrasena);
 
     #Comprobar si se han generado errores de validacion o no
