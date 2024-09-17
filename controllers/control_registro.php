@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
 
 
     #Validar el formulario a traves de la function validar_registro
-    $errores_validate = validar_registro($nombre, $email, $contrasena);
+    $errores_validate = validar_registro($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $nombre_usuario, $contrasena);
 
     #Comprobar si se han generado errores de validacion o no
     if(!empty($errores_validate)){
@@ -100,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
                                 $insert_statement1 -> close();
                                 $insert_statement2 -> close();
                                 $_SESSION['mensaje_exito'] = "EXITO: el usuario se ha registrado correctamente";
-                                header("Location: ../views/registro.php");
+                                header("Location: ../views/login.php");
                                 exit();
                             }
                         }

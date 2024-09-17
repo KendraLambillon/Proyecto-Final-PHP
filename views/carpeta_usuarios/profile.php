@@ -11,7 +11,9 @@ if(session_status() == PHP_SESSION_NONE){
 if(isset($_SESSION['user_data'])){
     $user_data = $_SESSION['user_data'];
 
+
     print_r($user_data);
+ 
 
     /*
     foreach($user_data as $key => $value){
@@ -23,6 +25,18 @@ if(isset($_SESSION['user_data'])){
     header("Location: ../../views/login.php");
     exit();
 }
+
+#Captar el resto de datos de users_data BBDD
+if(isset($_SESSION['user_other_data'])){
+    $user_other_data = $_SESSION['user_other_data'];
+
+    print_r($user_other_data);
+}else{
+    $_SESSION["mensaje_error"] = "Lo sentimos debes iniciar sesión";
+    header("Location: ../../views/login.php");
+    exit();
+}
+
 
 ?>
 
@@ -89,37 +103,37 @@ if(isset($_SESSION['user_data'])){
                 <form id="profile_form" class="mi__form" action="../../controllers/carpeta_usuarios/control_profile.php" method="POST">
                     <div class="form__options">
                         <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" value="<?php echo $XXX['XXX']; ?>" >
+                        <input type="text" id="username" name="username" value="<?php echo $user_other_data['nombre']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="surname">Apellidos &#128113; </label>
-                        <input type="text" id="surname" name="surname" value="<?php echo $user_data['apellidos']; ?>" >
+                        <input type="text" id="surname" name="surname" value="<?php echo $user_other_data['apellidos']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="email">Email &#128231; </label>
-                        <input type="textarea" id="email" name="email" value="<?php echo $user_data['email']; ?>" >
+                        <input type="textarea" id="email" name="email" value="<?php echo $user_other_data['email']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="phone">Teléfono &#128222; </label>
-                        <input type="tel" id="phone" name="phone" value="<?php echo $user_data['telefono']; ?>" >
+                        <input type="tel" id="phone" name="phone" value="<?php echo $user_other_data['telefono']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="fnac">Fecha de nacimiento &#128197; </label>
-                        <input type="date" id="fnac" name="fnac" value="<?php echo $user_data['fnac']; ?>" >
+                        <input type="date" id="fnac" name="fnac" value="<?php echo $user_other_data['fnac']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="address">Dirección &#128205; </label>
-                        <input type="text" id="address" name="address" value="<?php echo $user_data['direccion']; ?>" >
+                        <input type="text" id="address" name="address" value="<?php echo $user_other_data['direccion']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="gender">Género &#128699; </label>
-                        <input type="text" id="gender" name="gender" value="<?php echo $user_data['sexo']; ?>" >
+                        <input type="text" id="gender" name="gender" value="<?php echo $user_other_data['sexo']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
