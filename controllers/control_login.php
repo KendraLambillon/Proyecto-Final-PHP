@@ -54,8 +54,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
 
         $user = get_user_by_usuario($nombre_usuario, $mysqli_connection, $exception_error);
 
-        $user_other_data = get_other_data($id_user, $nombre, $mysqli_connection, $exception_error);
-
         #Comprobar si se ha capturado alguna excepcion
         if($exception_error){
             #Redirigimos a la pagina de error
@@ -70,16 +68,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
             if(password_verify($contrasena, $user['usuario_password'])){
                 #Generar una variable de sesion para guardar los datos
                 $_SESSION['user_data'] = $user;
-
-                #Establecer una variable de sesion con el resto de los datos para guardarlos
-                $_SESSION['user_other_data'] = $user_other_data;
-                /*
-                If($user_other_data !== false){
-                    $_SESSION['user_other_data'] = $user_other_data;
-                }else{
-                    $_SESSION['user_other_data'] = $user_other_data;
-                }
-                */
 
 
                 header('Location: ../views/carpeta_usuarios/profile.php');

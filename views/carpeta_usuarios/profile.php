@@ -24,17 +24,6 @@ if(isset($_SESSION['user_data'])){
     exit();
 }
 
-#Captar el resto de datos de users_data BBDD
-if(isset($_SESSION['user_other_data'])){
-    $user_other_data = $_SESSION['user_other_data'];
-
-    print_r($user_other_data);
-}else{
-    $_SESSION["mensaje_error"] = "Lo sentimos debes iniciar sesión";
-    header("Location: ../../views/login.php");
-    exit();
-}
-
 
 ?>
 
