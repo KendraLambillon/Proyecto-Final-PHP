@@ -11,10 +11,8 @@ if(session_status() == PHP_SESSION_NONE){
 if(isset($_SESSION['user_data'])){
     $user_data = $_SESSION['user_data'];
 
-
     print_r($user_data);
  
-
     /*
     foreach($user_data as $key => $value){
         echo "$key: $value <br>";
