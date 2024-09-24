@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
         #Comprobar si se ha capturado alguna excepcion
         if($exception_error){
             #Redirigimos a la pagina de error
-            $_SESSION['mensaje_error'] = "Error al buscar el usuario. Intentelo mas tarde o contacte con el Administrador.";
+            $_SESSION['mensaje_error'] = "Error al buscar el usuario. Intentelo más tarde o contacte con el Administrador.";
             header("Location: ../views/errors/error500.html");
             exit();
         }

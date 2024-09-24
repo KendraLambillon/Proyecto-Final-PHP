@@ -94,59 +94,6 @@ function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_er
     }
 }
 
-#Funcion para obtener los otros datos ubicado en el registro y hacer el autocompletado en profile.php
-
-function get_other_data($id_user, $nombre, $mysqli_connection, &$exception_error){
-    #Inicializar la consulta
-    $select_statement = null;
-
-    try{
-        #Preparar la consulta SQL necesaria para buscar al usuario a traves de su nombre
-        $query = "SELECT * FROM users_data WHERE nombre = 'username' ";
-        $select_statement = $mysqli_connection -> prepare($query);
-
-        if($select_statement === false){
-            error_log("No se pudo preparar la consulta " . $mysqli_connection -> error);
-            $exception_error = true;
-            return false; #Salimos de la funcion
-        }
-
-        #Vincular el nombre a la consulta
-        $select_statement -> bind_param('s', $nombre);
-
-        #Intentar ejecutar la consulta
-        if(!$select_statement -> execute()){
-            error_log("No se puede ejecutar la consulta " . $mysqli_connection -> error);
-            $exception_error = true;
-            return false;
-        }
-
-        #Obtener el resultado de la consulta
-        $result = $select_statement -> get_result();
-
-        if($result -> num_rows > 0){
-            $user_other_data = $result -> fetch_assoc(); #fetch_assoc() nos permite tener los datos del resultado como array asociativo
-            return $user_other_data;
-        }else{
-            #Si no se encuentra el usuario o no existe
-            return false;
-        }
-
-
-    }catch(Exception $e){
-        error_log("Error al ejecutar la funcion get_other_data(): " . $e -> getMessage());
-        $exception_error = true;
-        return false;
-    }finally{
-        #Aseguramos de cerrar la consulta si existe
-        if($select_statement !== null){
-            $select_statement -> close();
-        }
-    }
-}
-
-
-
 
 #Funcion que permite actualizar un usuario
 function update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $contrasena, $mysqli_connection){

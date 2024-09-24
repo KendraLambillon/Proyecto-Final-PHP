@@ -156,7 +156,7 @@ if(isset($_SESSION['user_data'])){
                         <a href="../index.php" class="nav__links">Inicio</a>
                     </li>
                     <li class="nav__items">
-                        <a href="../views/noticias.html" class="nav__links">Noticias</a>
+                        <a href="../views/noticias.php" class="nav__links">Noticias</a>
                     </li>
                     <li class="nav__items">
                         <a href="#" class="nav__links">Registro</a>
