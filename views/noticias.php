@@ -51,59 +51,77 @@
     <main>
         <div class="container about">
             <div class="language__table">
-                <div class="language__items">
-                    <div class="language__item">
-                        <p class="language__name">SQL</p>
-                        <a href="#" class="discover">Descubre aquí</a>
-                    </div>
-
-                    <div class="language__item">
-                        <p class="language__name">PHP</p>
-                        <a href="#" class="discover">Descubre aquí</a>
-                    </div>
-
-                    <div class="language__item">
-                        <p class="language__name">JavaScript</p>
-                        <a href="#" class="discover">Descubre aquí</a>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">Noticia title</h5>
-                    <p class="card-text">Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
-                    <p class="card-text"><small class="text-body-secondary">Fecha publicación</small></p>
-                    <p class="card-text"><small class="text-body-secondary">Nombre usuario que la ha creado</small></p>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">Noticia title</h5>
-                    <p class="card-text">Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
-                    <p class="card-text"><small class="text-body-secondary">Fecha publicación</small></p>
-                    <p class="card-text"><small class="text-body-secondary">Nombre usuario que la ha creado</small></p>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">Noticia title</h5>
-                    <p class="card-text">Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
-                    <p class="card-text"><small class="text-body-secondary">Fecha publicación</small></p>
-                    <p class="card-text"><small class="text-body-secondary">Nombre usuario que la ha creado</small></p>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">Noticia title</h5>
-                    <p class="card-text">Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
-                    <p class="card-text"><small class="text-body-secondary">Fecha publicación</small></p>
-                    <p class="card-text"><small class="text-body-secondary">Nombre usuario que la ha creado</small></p>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
+                    </div>
+                </div>
+                <div class="noticia__items">
+                    <div class="noticia__item">
+                        <img class="img_noticia" src="..." alt="...">
+                        <br>
+                        <p class="language__name">Noticia title</p>
+                        <br>
+                        <p>Texto de la noticia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit itaque rerum ipsum iste minus, saepe a quis. Nulla voluptate modi laborum, asperiores adipisci at dolor delectus quis perspiciatis error voluptates consequatur sed fuga repellendus rem est aut ipsa! Iure non unde natus quo doloremque sit illum tempora ducimus dolore suscipit.</p>
+                        <br>
+                        <p><small>Fecha publicación</small></p>
+                        <p><small>Nombre usuario que la ha creado</small></p>
+                    </div>
                 </div>
             </div>
         </div>

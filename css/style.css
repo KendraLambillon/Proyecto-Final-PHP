@@ -400,6 +400,30 @@ body{
     margin-bottom: 10px;
 }
 
+/*Noticias*/
+.noticia__items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.noticia__item{
+    background-color: #e5e5f7;
+    text-align: center;
+    border-radius: 10px;
+    width: 330px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.img_noticia{
+    height: 150px;
+    width: 150px;
+}
+
+
 /*Registro*/
 .mi__form{
     padding-top: 60px;
