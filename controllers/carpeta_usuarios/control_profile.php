@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     $direccion = htmlspecialchars($_POST["address"]);
     $genero = htmlspecialchars($_POST["gender"]);
     $nombre_usuario = htmlspecialchars($_POST["user_ref"]);
-    $contrasena = htmlspecialchars($_POST["userpwd"]);
+    $contrasena = ($_POST["userpwd"]);
 
     #Recuperar el idUser del usuario de la sesion
     $id_user = $_SESSION['user_data']['userslogin_idUser'];
@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     
 
     #Validar todos los datos
-    $errores_validate = validar_registro($nombre, $email, $contrasena);
+    $errores_validate = validar_registro($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $nombre_usuario, $contrasena);
 
     #Comprobar si se han generado errores de validacion o no
     if(!empty($errores_validate)){
@@ -66,11 +66,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
         $_SESSION['user_data']['contrasena'] = $contrasena;
 
         $_SESSION['mensaje_exito'] = "Los datos se han actualizado correctamente";
-        header('Location: ../../views/carpeta_usuarios/profile.php');
+        header('Location: ../views/carpeta_usuarios/profile.php');
         exit();
     }else{
         $_SESSION['mensaje_error'] = "Hubo un error al actualizar los datos";
-        header('Location: ../../views/carpeta_usuarios/profile.php');
+        header('Location: ../views/carpeta_usuarios/profile.php');
         exit();
     }
 }

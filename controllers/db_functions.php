@@ -51,8 +51,12 @@ function get_user_by_usuario($nombre_usuario, $mysqli_connection, &$exception_er
 
     try{
         #Preparar la consulta SQL necesaria para buscar al usuario a traves de su nombre de usuario
-        $query = "SELECT * FROM users_login WHERE usuario = ? LIMIT 1";
+        $query = "SELECT * FROM users_login INNER JOIN users_data ON (users_login.userslogin_idUser = users_data.idUser) WHERE usuario = ? LIMIT 1";
         $select_statement = $mysqli_connection -> prepare($query);
+
+        //otra consulta similar seria:
+        //$query = SELECT * FROM users_login, users_data 
+        //WHERE (users_login.userslogin_idUser = users_data.idUser) AND usuario = ? LIMIT 1;
 
         if($select_statement === false){
             error_log("No se pudo preparar la consulta " . $mysqli_connection -> error);

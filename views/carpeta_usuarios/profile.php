@@ -90,7 +90,7 @@ if(isset($_SESSION['user_data'])){
                 <form id="profile_form" class="mi__form" action="../../controllers/carpeta_usuarios/control_profile.php" method="POST">
                     <div class="form__options">
                         <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" value="<?php echo $user_data['usuario']; ?>" >
+                        <input type="text" id="username" name="username" value="<?php echo $user_data['nombre']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
@@ -110,7 +110,7 @@ if(isset($_SESSION['user_data'])){
                     </div>
                     <div class="form__options">
                         <label for="fnac">Fecha de nacimiento &#128197; </label>
-                        <input type="date" id="fnac" name="fnac" value="<?php echo $user_data['fnac']; ?>" >
+                        <input type="text" id="fnac" name="fnac" value="<?php echo $user_data['fnac']; ?>" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
@@ -132,10 +132,6 @@ if(isset($_SESSION['user_data'])){
                         <label for="userpwd">Contraseña &#128272; </label>
                         <input type="password" id="userpwd" name="userpwd" value="<?php echo $user_data['usuario_password']; ?>" >
                         <small class="input_error"></small>
-                    </div>
-                    <div class="password__show">
-                        <label for="checkpwd">Mostrar contraseña</label>
-                        <input type="checkbox" id="checkpwd">
                     </div>
                     <div class="form__buttons">
                         <input type="submit" value="Guardar" name="actualizar_datos">

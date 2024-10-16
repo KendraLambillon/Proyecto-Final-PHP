@@ -15,7 +15,7 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 
-#Comprobaoms si la informacion llega a traves del metodo post y del formulario con submit
+#Comprobamos si la informacion llega a traves del metodo post y del formulario con submit
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
     #Obtenemos los datos del formulario saneados
     $nombre = htmlspecialchars($_POST["username"]);
@@ -47,10 +47,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
         exit();
     }
 
-    #// Usar DateTime para convertirla al formato yyyy-mm-dd
+    # Usar DateTime para convertirla al formato yyyy-mm-dd
     $dateObject = DateTime::createFromFormat('d/m/Y', $fecha_nacimiento);    
     if(!$dateObject) {        
-        // Intenta con el formato dd-mm-yyyy si el formato anterior no es válido
+        // Intentar con el formato dd-mm-yyyy si el formato anterior no es válido
         $dateObject = DateTime::createFromFormat('d-m-Y', $fecha_nacimiento);     
     }  
 

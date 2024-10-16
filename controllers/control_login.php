@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
         exit();
     }finally{
         #Cerramos la conexion a la BBDD si aun sigue abierta
-        #si esta estableida la conexion y si existe:
+        #si esta establecida la conexion y si existe:
         if(isset($mysqli_connection) && ($mysqli_connection)){
             $mysqli_connection -> close();
         }
