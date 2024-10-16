@@ -40,27 +40,30 @@ function validateSurname(surname){
 }
 
 function validateEmail(email){
-    let regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{10,60}$/;
+    let regex = /^[\w-]*@([\w-]+\.)+[a-zA-Z]{2,3}$/;
     return regex.test(email);
 }
 
 function validateTelefono(phone){
-    let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{9,20}$/;
+    let regex = /^\d{9}$/;
     return regex.test(phone);
 }
 
+///^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/
+
 function validateFnac(fnac){
-    let regex = /(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/;
+    let regex = /^(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](19|20)\d{2}$/;
     return regex.test(fnac);
 }
+// /^(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](19|20)\d{2}$/
 
 function validateAddress(address){
-    let regex = /^(\d{1,}) [a-zA-Z0-9\s]+(\,)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}$/;
+    let regex = /^[a-zA-Z0-9\s,.#-]{5,100}$/;
     return regex.test(address);
 }
 
 function validateSexo(gender){
-    let regex = /^[a-zA-Z ]{4,6}$/;
+    let regex = /^(Mujer|Hombre|Neutro)$/;
     return regex.test(gender);
 }
 
@@ -70,9 +73,11 @@ function validateNameUser(user_ref){
 }
 
 function validatePwd(userpwd){
-    let regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[.,_\-])[a-zA-Z\d.,_\-]{8,20}$/;
+    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_.])[a-zA-Z0-9._-]{4,20}$/;
     return regex.test(userpwd);
 }
+// /^[a-zA-Z0-9._-!*]{6,20}$/
+// ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_.])[a-zA-Z0-9._-]{4,20}$
 
 //Definimos las funciones de validación al salir del input
 function validateOnBlur(inputElement, validator){

@@ -1,5 +1,0 @@
-MENSAJE DE ERROR DESPUES DE HABER EDITADO EL CODIGO PHP
-
-
-La conexion ha funcionado
-Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'users_login) VALUES (?)' at line 1 in C:\xampp\htdocs\ProyectoFinal_PHP\controllers\control_registro.php:25 Stack trace: #0 C:\xampp\htdocs\ProyectoFinal_PHP\controllers\control_registro.php(25): mysqli->prepare('SELECT idUser F...') #1 {main} thrown in C:\xampp\htdocs\ProyectoFinal_PHP\controllers\control_registro.php on line 25

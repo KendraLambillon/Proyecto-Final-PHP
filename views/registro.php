@@ -91,7 +91,7 @@
                     </div>
                     <div class="form__options">
                         <label for="fnac">Fecha de nacimiento &#128197; </label>
-                        <input type="date" id="fnac" name="fnac" placeholder="Fecha de nacimiento" >
+                        <input type="text" id="fnac" name="fnac" placeholder="DD-MM-YYY" >
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">

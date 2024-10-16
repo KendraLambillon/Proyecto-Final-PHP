@@ -48,4 +48,9 @@ CREATE TABLE IF NOT EXISTS noticias(
     noticias_idUser INT NOT NULL,
     PRIMARY KEY(idNoticia),
     FOREIGN KEY(noticias_idUser) REFERENCES users_data(idUser)
-)ENGINE=INNODB;
+)ENGINE=INNODB; 
+
+-- Insert into --> 2 profiles creation
+-- 1 usuario
+-- 1 admin
+-- 1 cita

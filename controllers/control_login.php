@@ -14,15 +14,8 @@ if(session_status() == PHP_SESSION_NONE){
 #Comprobar si la informacion esta llegando a traves de POST y Submit
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
     #Obtener los datos del formulario saneados
-    $nombre = htmlspecialchars($_POST["username"]);
-    $apellidos = htmlspecialchars($_POST["surname"]);
-    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-    $telefono = htmlspecialchars($_POST["phone"]);
-    $fecha_nacimiento = htmlspecialchars($_POST["fnac"]);
-    $direccion = htmlspecialchars($_POST["address"]);
-    $genero = htmlspecialchars($_POST["gender"]);
     $nombre_usuario = htmlspecialchars($_POST["user_ref"]);
-    $contrasena = htmlspecialchars($_POST["userpwd"]);
+    $contrasena = ($_POST["userpwd"]);
 
     #Recuperar el idUser del usuario de la sesion
     $id_user = $_SESSION['user_data']['userslogin_idUser'];

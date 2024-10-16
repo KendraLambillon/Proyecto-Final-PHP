@@ -2,12 +2,12 @@
 #Declarar como constantes las expresiones regulares que van a comprobar los datos
 define("NOMBRE_REGEX", "/^[a-zA-Z ]{2,45}$/");
 define("SURNAME_REGEX", "/^[a-zA-Z ]{2,45}$/");
-define("TELEFONO_REGEX", "/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{9,20}$/");
-define("FNAC_REGEX", "/(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/");
-define("ADDRESS_REGEX", "/^(\d{1,}) [a-zA-Z0-9\s]+(\,)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}$/");
-define("GENDER_REGEX", "/^[a-zA-Z ]{4,6}$/");
+define("TELEFONO_REGEX", "/^\d{9}$/");
+define("FNAC_REGEX", "/^(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](19|20)\d{2}$/");
+define("ADDRESS_REGEX", "/^[a-zA-Z0-9\s,.#-]{5,100}$/");
+define("GENDER_REGEX", "/^(Mujer|Hombre|Neutro)$/");
 define("NOMBREUSUARIO_REGEX", "/^[A-Za-z][A-Za-z0-9_]{4,45}$/");
-define("PWD_REGEX", "/^(?=.*[A-Z])(?=.*\d)(?=.*[.,_\-])[a-zA-Z\d.,_\-]{8,20}$/");
+define("PWD_REGEX", "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_.])[a-zA-Z0-9._-]{4,20}$/");
 
 #Definimos la funcion de validar el registro
 function validar_registro($nombre, $apellidos, $email, $telefono,  $fecha_nacimiento, $direccion, $genero, $nombre_usuario, $password){

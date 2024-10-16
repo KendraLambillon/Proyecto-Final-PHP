@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
     $direccion = htmlspecialchars($_POST["address"]);
     $genero = htmlspecialchars($_POST["gender"]);
     $nombre_usuario = htmlspecialchars($_POST["user_ref"]);
-    $contrasena = htmlspecialchars($_POST["userpwd"]);
+    $contrasena = ($_POST["userpwd"]);
 
 
     #Validar el formulario a traves de la function validar_registro
@@ -46,6 +46,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
         header("Location: ../views/registro.php");
         exit();
     }
+
+    #// Usar DateTime para convertirla al formato yyyy-mm-dd
+    $dateObject = DateTime::createFromFormat('d/m/Y', $fecha_nacimiento);    
+    if(!$dateObject) {        
+        // Intenta con el formato dd-mm-yyyy si el formato anterior no es válido
+        $dateObject = DateTime::createFromFormat('d-m-Y', $fecha_nacimiento);     
+    }  
+
+    if($dateObject) {        
+        // Si la fecha es válida, convertirla a yyyy-mm-dd
+        $formattedDate = $dateObject->format('Y-m-d');        
+        echo "Fecha convertida para la base de datos: " . $formattedDate; 
+    }else{
+        echo "Formato de fecha no válido."; 
+    }
+
 
     # Hasheamos la contrasena si es correcta
     # Hash en pwd: para encriptar la contraseña
@@ -79,7 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
                     header('Location: ../views/errors/error500.html');
                 }else{
                     # Especificamos que la sentencia de inserción llevará X parámetros mencionados, en este caso 7 datos
-                    $insert_statement1 -> bind_param("sssssss", $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero);
+                    $insert_statement1 -> bind_param("sssssss", $nombre, $apellidos, $email, $telefono, $formattedDate, $direccion, $genero);
                     #Se comprueba si se puede ejecutar la consulta1 de insercion
                     if($insert_statement1 -> execute()){
                         # Obtener el idUser generado automáticamente

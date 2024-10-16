@@ -4,13 +4,13 @@ const user_usuario = document.querySelector('#user_ref');
 const user_pwd = document.querySelector('#userpwd');
 
 function validateUsuario(user_ref){
-    let regex = /^[a-zA-Z ]{2,45}$/;
+    let regex = /^[A-Za-z][A-Za-z0-9_]{4,45}$/;
 
     return regex.test(user_ref);
 }
 
 function validatePassword(userpwd){
-    let regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[.,_\-])[a-zA-Z\d.,_\-]{8,20}$/;
+    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_.])[a-zA-Z0-9._-]{4,20}$/;
 
     return regex.test(userpwd);
 }
