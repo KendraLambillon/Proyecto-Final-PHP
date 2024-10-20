@@ -5,14 +5,19 @@
 require_once __DIR__ . '/../config/config.php';
 
 #Definir una funcion para comprobar si existe un usuario en la base de datos
-function check_user($email, $mysqli_connection){
+function check_user($email, $mysqli_connection, &$exception_error){
+    #Declaro $select_statement como nula para prevenir errores y gestionar mejor las excepciones
+    $select_statement = null;
+    #Inicio de la gestion del control de excepciones
     try{
         #Preparar la consulta para buscar el email en la BBDD
         $select_statement = $mysqli_connection -> prepare('SELECT email FROM users_data WHERE email = ?');
 
         #Comprobamos si la consulta se ha podido preparar
         if($select_statement === false){
-            throw new Exception("No se pudo preparar la consulta " . $mysqli_connection -> error);
+            error_log("No se pudo preparar la consulta: " . $mysqli_connection -> error);
+            $exception_error = true;
+            return false;
         }
 
         #Vincular el email a la consulta
@@ -20,8 +25,15 @@ function check_user($email, $mysqli_connection){
 
         #Comprobar si se puede ejecutar la consulta
         if(!$select_statement -> execute()){
-            throw new Exception("No se pudo preparar la consulta " . $select_statement -> error);
+            error_log("No se pudo preparar la consulta: " . $select_statement -> error);
+            $exception_error = true;
+            return false;
         }
+
+        #Guardamos el resultado de la consulta tras su ejecucion
+        $select_statement -> store_result();
+        
+        return $select_statement -> num_rows > 0;
 
         #Realizamos la ejecucion de la consulta
         $select_statement -> execute();
@@ -40,7 +52,12 @@ function check_user($email, $mysqli_connection){
     }catch(Exception $except){
         #Añadir la excepcion al log
         error_log("Error en la funcion check_user: " . $except -> getMessage());
+        $exception_error = true;
         return false;
+    } finally {
+        if($select_statement !== null){
+            $select_statement -> close();
+        }
     }
 }
 
@@ -113,7 +130,8 @@ function update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $
 
 
     #Crear consulta de actualizacion
-    $query = "UPDATE users_data SET nombre = ?, apellidos = ?, email = ?, telefono = ?, fecha_nacimiento = ?, direccion = ?, genero = ?, contrasena = ? WHERE id_user = ?";
+    $query = "UPDATE users_data INNER JOIN users_login ON (users_login.idUser = users_data.idUser)
+    SET nombre = ?, apellidos = ?, email = ?, telefono = ?, fecha_nacimiento = ?, direccion = ?, genero = ?, contrasena = ? WHERE id_user = ?";
 
     #Preparar la consulta SQL
     $consulta = $mysqli_connection -> prepare($query);

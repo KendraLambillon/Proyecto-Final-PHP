@@ -93,6 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
                 if(!$insert_statement1){
                     error_log("No se pudo preparar la consulta " . $mysqli_connection -> error);
                     header('Location: ../views/errors/error500.html');
+                    exit();
                 }else{
                     # Especificamos que la sentencia de inserción llevará X parámetros mencionados, en este caso 7 datos
                     $insert_statement1 -> bind_param("sssssss", $nombre, $apellidos, $email, $telefono, $formattedDate, $direccion, $genero);
@@ -108,6 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["registrarse"])){
                         if(!$insert_statement2){
                             error_log("No se pudo preparar la consulta " . $mysqli_connection -> error);
                             header('Location: ../views/errors/error500.html');
+                            exit();
                         }else{
                             # Especificamos que la sentencia de inserción llevará X parámetros mencionados, 3 datos
                             $insert_statement2 -> bind_param("iss", $iduser, $nombre_usuario, $password);

@@ -134,7 +134,7 @@ if(isset($_SESSION['user_data'])){
                         <small class="input_error"></small>
                     </div>
                     <div class="form__buttons">
-                        <input type="submit" value="Guardar" name="actualizar_datos">
+                        <input type="submit" value="Actualizar" name="actualizar_datos">
                     </div>
                 </form>
             </div>

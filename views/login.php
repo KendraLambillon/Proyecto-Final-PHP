@@ -46,14 +46,15 @@
             <h1 class="head__title">Inicio de sesión</h1>
         </section>
     </header>
-
+    <!-- Cuerpo Principal  -->
     <main>
         <div class="container about">
             <h2>Iniciar sesión</h2>
             <div class="aviso_registro">
             </div>
+            <!-- Form -->
             <div class="formulario">
-                <form id="login_form" class="mi__form" action="../controllers/control_login.php" method="POST">
+                <form id="login_form" class="mi__form" action="/../controllers/control_login.php" method="POST">
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>
                         <input type="text" id="user_ref" name="user_ref" placeholder="Nombre de usuario" title="El nombre de usuario debe ser único y tener entre 4 y 45 caracteres.">
@@ -91,7 +92,7 @@
                         <a href="../views/noticias.php" class="nav__links">Noticias</a>
                     </li>
                     <li class="nav__items">
-                        <a href="#" class="nav__links">Registro</a>
+                        <a href="../views/registro.php" class="nav__links">Registro</a>
                     </li>
                     <li class="nav__items">
                         <a href="#" class="nav__links">Login</a>

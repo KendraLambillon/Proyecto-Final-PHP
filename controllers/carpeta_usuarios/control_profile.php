@@ -28,7 +28,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     $id_user = $_SESSION['user_data']['userslogin_idUser'];
     echo $id_user;
     
-
     #Validar todos los datos
     $errores_validate = validar_registro($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $nombre_usuario, $contrasena);
 
@@ -51,26 +50,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar_datos'])){
     # Hash en pwd: para encriptar la contraseña
     $password = password_hash($contrasena, PASSWORD_BCRYPT);
 
-    #Actualizacion de los datos del usuario en la BBDD
+    #Actualización de los datos del usuario en la BBDD
     $result = update_usuario_data($id_user, $nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $genero, $contrasena, $mysqli_connection);
 
     if($result == true){
-        #Actualizar los datos en la sesion
+        #Actualizar los datos en la sesión
         $_SESSION['user_data']['nombre'] = $nombre;
         $_SESSION['user_data']['apellidos'] = $apellidos;
         $_SESSION['user_data']['email'] = $email;
         $_SESSION['user_data']['telefono'] = $telefono;
-        $_SESSION['user_data']['fecha_nacimiento'] = $fecha_nacimiento;
+        $_SESSION['user_data']['fnac'] = $fecha_nacimiento;
         $_SESSION['user_data']['direccion'] = $direccion;
-        $_SESSION['user_data']['genero'] = $genero;
-        $_SESSION['user_data']['contrasena'] = $contrasena;
+        $_SESSION['user_data']['sexo'] = $genero;
+        $_SESSION['user_data']['usuario_password'] = $contrasena;
 
         $_SESSION['mensaje_exito'] = "Los datos se han actualizado correctamente";
-        header('Location: ../views/carpeta_usuarios/profile.php');
+        header("Location: ../../views/carpeta_usuarios/profile.php");
         exit();
-    }else{
+    } else {
         $_SESSION['mensaje_error'] = "Hubo un error al actualizar los datos";
-        header('Location: ../views/carpeta_usuarios/profile.php');
+        header("Location: ../../views/carpeta_usuarios/profile.php");
         exit();
     }
+
+    
 }
