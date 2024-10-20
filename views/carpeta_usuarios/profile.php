@@ -50,6 +50,12 @@ if(isset($_SESSION['user_data'])){
                     <a href="../../index.php" class="nav__links">Inicio</a>
                 </li>
                 <li class="nav__items">
+                    <a href="../../noticias.php" class="nav__links">Noticias</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../../citaciones.php" class="nav__links">Citaciones</a>
+                </li>
+                <li class="nav__items">
                     <a class="nav__links active" href="#">Perfil</a>
                 </li>
                 <li class="nav__items">

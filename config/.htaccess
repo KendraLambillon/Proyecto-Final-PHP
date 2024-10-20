@@ -3,8 +3,10 @@
     Require all denied
 </Files>
 
+<!--
 # Sintaxis para versiones anteriores de apache
 # <Files "config.php">
     # Order Allow,Deny
     # Deny from all
 #</Files>
+-->
