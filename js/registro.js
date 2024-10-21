@@ -125,10 +125,3 @@ validateOnBlur(direccion, validateAddress);
 validateOnBlur(sexo, validateSexo);
 validateOnBlur(nombre_usuario, validateNameUser);
 validateOnBlur(contrasena, validatePwd);
-
-
-
-
-
-
-

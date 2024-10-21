@@ -68,50 +68,50 @@
                 ?>
             </div>
             <div class="formulario">
-                <form id="regsitro" class="mi__form" action="../controllers/control_registro.php" method="POST">
+                <form id="registro" class="mi__form" action="../controllers/control_registro.php" method="POST">
                     <div class="form__options">
                         <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" placeholder="Laura" title="El nombre debe tener entre 2 y 45 caracteres." >
+                        <input type="text" id="username" name="username" placeholder="Laura" title="El nombre debe tener entre 2 y 45 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="surname">Apellidos &#128113; </label>
-                        <input type="text" id="surname" name="surname" placeholder="Santos" title="Los apellidos deben tener entre 2 y 45 caracteres." >
+                        <input type="text" id="surname" name="surname" placeholder="Santos" title="Los apellidos deben tener entre 2 y 45 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="email">Email &#128231; </label>
-                        <input type="textarea" id="email" name="email" placeholder="xxx@gmail.com" title="El email debe tener entre 10 y 60 caracteres." >
+                        <input type="textarea" id="email" name="email" placeholder="xxx@gmail.com" title="El email debe tener entre 10 y 60 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="phone">Teléfono &#128222; </label>
-                        <input type="tel" id="phone" name="phone" placeholder="666777888" title="El numero de teléfono debe tener entre 9 y 20 digitos." >
+                        <input type="tel" id="phone" name="phone" placeholder="666777888" title="El numero de teléfono debe tener entre 9 y 20 digitos." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="fnac">Fecha de nacimiento &#128197; </label>
-                        <input type="text" id="fnac" name="fnac" placeholder="DD-MM-YYY" >
+                        <input type="text" id="fnac" name="fnac" placeholder="DD-MM-YYY" required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="address">Dirección &#128205; </label>
-                        <input type="text" id="address" name="address" placeholder="1, calle Paris" title="La dirección debe tener digitos y caracteres." >
+                        <input type="text" id="address" name="address" placeholder="1, calle Paris" title="La dirección debe tener digitos y caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="gender">Género &#128699; </label>
-                        <input type="text" id="gender" name="gender" placeholder="Mujer, Hombre, Neutro" title="El genero debe ser: Mujer, Hombre o Neutro. " >
+                        <input type="text" id="gender" name="gender" placeholder="Mujer, Hombre, Neutro" title="El genero debe ser: Mujer, Hombre o Neutro. " required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>
-                        <input type="text" id="user_ref" name="user_ref" placeholder="laurasant" title="El nombre de usuario debe tener entre 4 y 45 caracteres." >
+                        <input type="text" id="user_ref" name="user_ref" placeholder="laurasant" title="El nombre de usuario debe tener entre 4 y 45 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="userpwd">Contraseña &#128272; </label>
-                        <input type="password" id="userpwd" name="userpwd" placeholder="Hola-1234" title="La contraseña debe tener entre 8 y 20 caracteres." >
+                        <input type="password" id="userpwd" name="userpwd" placeholder="Hola-1234" title="La contraseña debe tener entre 8 y 20 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="password__show">

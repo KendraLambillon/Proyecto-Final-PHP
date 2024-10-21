@@ -68,31 +68,21 @@
                 ?>
             </div>
             <div class="formulario">
-                <form id="regsitro" class="mi__form" action="../controllers/control_registro.php" method="POST">
-                <div class="form__options">
-                        <label for="user_ref">Nombre de usuario &#128187; </label>
-                        <input type="text" id="user_ref" name="user_ref" placeholder="laurasant" title="Este campo es obligatorio." >
-                        <small class="input_error"></small>
-                    </div>
+                <form id="citas" class="mi__form" action="#" method="POST">
                     <div class="form__options">
-                        <label for="username">Nombre &#128113; </label>
-                        <input type="text" id="username" name="username" placeholder="Laura" title="Este campo es obligatorio." >
-                        <small class="input_error"></small>
-                    </div>
-                    <div class="form__options">
-                        <label for="surname">Apellidos &#128113; </label>
-                        <input type="text" id="surname" name="surname" placeholder="Santos" title="Este campo es obligatorio." >
+                        <label for="email">Email &#128231; </label>
+                        <input type="textarea" id="email" name="email" placeholder="xxx@gmail.com" title="El email debe tener entre 10 y 60 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="fecha_cita">Fecha de la cita &#128197; </label>
-                        <input type="text" id="fecha_cita" name="fecha_cita" placeholder="DD/MM/YY" title="Este campo es obligatorio.">
+                        <input type="date" id="fecha_cita" name="fecha_cita" placeholder="DD/MM/YY" title="Este campo es obligatorio." required>
                         <small class="input_error"></small>
                     </div>
                     </div>
                     <div class="form__options">
                         <label for="motivo_cita">Motivo de la cita</label>
-                        <input type="text" id="motivo_cita" name="motivo_cita" placeholder="Escriba el motivo de su cita." title="Este campo es obligatorio." >
+                        <textarea name="motivo_cita" id="motivo_cita" rows="5" required></textarea>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__buttons">

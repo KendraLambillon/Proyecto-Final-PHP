@@ -54,15 +54,15 @@
             </div>
             <!-- Form -->
             <div class="formulario">
-                <form id="login_form" class="mi__form" action="/../controllers/control_login.php" method="POST">
+                <form id="login_form" class="mi__form" action="../../controllers/control_login.php" method="POST">
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>
-                        <input type="text" id="user_ref" name="user_ref" placeholder="Nombre de usuario" title="El nombre de usuario debe ser único y tener entre 4 y 45 caracteres.">
+                        <input type="text" id="user_ref" name="user_ref" placeholder="Nombre de usuario" title="El nombre de usuario debe ser único y tener entre 4 y 45 caracteres." required>
                         <small class="input_error"></small>
                     </div>
                     <div class="form__options">
                         <label for="userpwd">Contraseña &#128272; </label>
-                        <input type="password" id="userpwd" name="userpwd" placeholder="Contraseña" title="La contraseña deberá contener entre 8 y 20 caracteres e incluir de forma obligatoria una letra mayúscula, un número y un símbolo entre los siguientes (.,_-)">
+                        <input type="password" id="userpwd" name="userpwd" placeholder="Contraseña" title="La contraseña deberá contener entre 8 y 20 caracteres e incluir de forma obligatoria una letra mayúscula, un número y un símbolo entre los siguientes (.,_-)" required>
                         <small class="input_error"></small>
                     </div>
                     <div class="password__show">
