@@ -438,9 +438,25 @@ body{
     margin-right: 30px;
 }
 
+
 .aviso__registro{
     margin-top: 20px;
     font-style: italic;
+}
+
+
+.mensaje_error {
+    margin-top: 20px;
+    font-style: italic;
+    color: red;
+    font-weight: bold;
+}
+
+.mensaje_exito {
+    margin-top: 20px;
+    font-style: italic;
+    color: green;
+    font-weight: bold;
 }
 
 /*Media queries*/

@@ -54,14 +54,14 @@
                 <?php
                     #Comprobar si hay mensajes de error
                     if(isset($_SESSION["mensaje_error"])){
-                        echo "<span>" . $_SESSION['mensaje_error'] . "</span>";
+                        echo "<span class='mensaje_error'>" . $_SESSION['mensaje_error'] . "</span>";
                         #Eliminar el mensaje de error
                         unset($_SESSION["mensaje_error"]);
                     }
 
                     #Comprobar si hay mensajes de exito
                     if(isset($_SESSION["mensaje_exito"])){
-                        echo "<span>" . $_SESSION['mensaje_exito'] . "</span>";
+                        echo "<span class='mensaje_exito'>" . $_SESSION['mensaje_exito'] . "</span>";
                         #Eliminar el mensaje de exito
                         unset($_SESSION["mensaje_exito"]);
                     }
