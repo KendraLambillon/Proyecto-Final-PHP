@@ -28,7 +28,7 @@ function validateOnBlur(inputElement, validator){
             smallElement.style.visibility = "visible";
         }else{
             smallElement.style.visibility = "hidden"; // Escondemos el campo
-            smallElement.textContent = ''; // Liampiamos el campo
+            smallElement.textContent = ''; // Limpiamos el campo
         }
 
     });

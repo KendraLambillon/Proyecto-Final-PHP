@@ -31,7 +31,7 @@
                     <a href="../views/noticias.php" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Registro</a>
+                    <a href="#" class="nav__links active">Registro</a>
                 </li>
                 <li class="nav__items">
                     <a href="../views/login.php" class="nav__links">Login</a>

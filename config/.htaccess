@@ -3,6 +3,7 @@
     Require all denied
 </Files>
 
+
 <!--
 # Sintaxis para versiones anteriores de apache
 # <Files "config.php">

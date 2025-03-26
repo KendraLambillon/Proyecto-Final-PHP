@@ -29,7 +29,7 @@
                     <a href="../index.php" class="nav__links">Inicio</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Noticias</a>
+                    <a href="#" class="nav__links active">Noticias</a>
                 </li>
                 <li class="nav__items">
                     <a href="../views/registro.php" class="nav__links">Registro</a>

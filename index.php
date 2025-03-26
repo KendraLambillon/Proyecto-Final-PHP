@@ -27,7 +27,7 @@
             </div>
             <ul class="nav__link nav__link--menu">
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Inicio</a>
+                    <a href="#" class="nav__links active">Inicio</a>
                 </li>
                 <?php if(isset($_SESSION['user_id'])): ?>
                     <li class="nav__items">

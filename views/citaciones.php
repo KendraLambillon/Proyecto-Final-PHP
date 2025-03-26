@@ -31,10 +31,13 @@
                     <a href="../views/noticias.php" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Registro</a>
+                    <a href="#" class="nav__links active">Citaciones</a>
                 </li>
                 <li class="nav__items">
-                    <a href="../views/login.php" class="nav__links">Login</a>
+                    <a href="../views/profile.php" class="nav__links">Perfil</a>
+                </li>
+                <li class="nav__items">
+                    <a href="../../controllers/carpeta_usuarios/logout.php" class="nav__links">Cerrar sesión</a>
                 </li>
                 <img src="../assets/img/close.svg" alt="close" class="nav__close">
             </ul>

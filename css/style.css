@@ -70,6 +70,11 @@ body{
     list-style: none;
 }
 
+.active{
+    color: white !important; /*Marca la pagina activa en la que estamos*/
+    font-weight: bold;
+}
+
 .nav__links{
     color: #fff;
     text-decoration: none;

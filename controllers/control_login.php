@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
     $contrasena = ($_POST["userpwd"]);
 
     #Recuperar el idUser del usuario de la sesion
-    $id_user = $_SESSION['user_data']['userslogin_idUser'];
+    $id_user = $_SESSION['users_data']['userslogin_idUser'];
     echo $id_user;
 
     
@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
         $user = get_user_by_usuario($nombre_usuario, $mysqli_connection, $exception_error);
 
         #Comprobar si se ha capturado alguna excepcion
-        if($exception_error){
+        if($exception_error == true){
             #Redirigimos a la pagina de error
             $_SESSION['mensaje_error'] = "Error al buscar el usuario. Intentelo más tarde o contacte con el Administrador.";
             header("Location: ../views/errors/error500.html");
@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
             #Verificar si la contraseña facilitada por el usuario en el form si coincide con la de la BBDD
             if(password_verify($contrasena, $user['usuario_password'])){
                 #Generar una variable de sesion para guardar los datos
-                $_SESSION['user_data'] = $user;
+                $_SESSION['users_data'] = $user;
 
 
                 header('Location: ../views/carpeta_usuarios/profile.php');
