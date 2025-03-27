@@ -11,19 +11,31 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
+# Verifica si el usuario ya esta connectado
+if (isset($_SESSION['users_data'])) {
+    header('Location: ../views/carpeta_usuarios/profile.php');
+    exit();
+}
+
 #Comprobar si la informacion esta llegando a traves de POST y Submit
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
     #Obtener los datos del formulario saneados
     $nombre_usuario = htmlspecialchars($_POST["user_ref"]);
     $contrasena = ($_POST["userpwd"]);
 
+    //var_dump($_POST);
+    //exit;
+
     #Recuperar el idUser del usuario de la sesion
     $id_user = $_SESSION['users_data']['userslogin_idUser'];
-    echo $id_user;
+    //echo $id_user;
+
+    # Hash en pwd: para encriptar la contraseña
+    $password = password_hash($contrasena, PASSWORD_BCRYPT);
 
     
     #Validar el formulario
-    $errores_validate = validar_login($nombre_usuario, $contrasena);
+    $errores_validate = validar_login($nombre_usuario, $password);
 
     #Comprobar si se han generado errores de validacion
     if(!empty($errores_validate)){
@@ -58,11 +70,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start_login'])){
         #Comprobar si hemos encontrado al usuario
         if($user){
             #Verificar si la contraseña facilitada por el usuario en el form si coincide con la de la BBDD
-            if(password_verify($contrasena, $user['usuario_password'])){
+            if(password_verify($password, $user['usuario_password'])){
                 #Generar una variable de sesion para guardar los datos
                 $_SESSION['users_data'] = $user;
-
-
                 header('Location: ../views/carpeta_usuarios/profile.php');
                 exit();
             }else{

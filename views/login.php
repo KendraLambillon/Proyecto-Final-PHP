@@ -31,10 +31,10 @@
                     <a href="../views/noticias.php" class="nav__links">Noticias</a>
                 </li>
                 <li class="nav__items">
-                    <a href="../views/registro.php" class="nav__links active">Registro</a>
+                    <a href="../views/registro.php" class="nav__links ">Registro</a>
                 </li>
                 <li class="nav__items">
-                    <a href="#" class="nav__links">Login</a>
+                    <a href="#" class="nav__links active">Login</a>
                 </li>
                 <img src="../assets/img/close.svg" alt="close" class="nav__close">
             </ul>
@@ -54,7 +54,7 @@
             </div>
             <!-- Form -->
             <div class="formulario">
-                <form id="login_form" class="mi__form" action="../../controllers/control_login.php" method="POST">
+                <form id="login_form" class="mi__form" action="http://localhost/ProyectoFinal_PHP/controllers/control_login.php" method="POST">
                     <div class="form__options">
                         <label for="user_ref">Nombre de usuario &#128187; </label>
                         <input type="text" id="user_ref" name="user_ref" placeholder="Nombre de usuario" title="El nombre de usuario debe ser único y tener entre 4 y 45 caracteres." required>
@@ -117,5 +117,6 @@
     <!--JS script-->
     <script src="../js/registro.js"></script>
     <script src="../js/login.js"></script>
+
 </body>
 </html>
